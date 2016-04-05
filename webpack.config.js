@@ -20,7 +20,7 @@ const common = {
   },
   output: {
     path: PATHS.build,
-    filename: 'bundle.js'
+    filename: 'index.js'
   },
   module: {
     loaders: [
