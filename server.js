@@ -7,7 +7,9 @@ var PORT = process.env.PORT || 8080
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/', function(request, response) {
+  console.log('This app.get function is about to run...');
   response.sendFile(__dirname + '/build/index.html');
+  console.log('This get.app function just ran');
 });
 
 app.listen(PORT, function() {
