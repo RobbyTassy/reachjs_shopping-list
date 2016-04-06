@@ -1,7 +1,7 @@
 {
-  "name": "kanban_app",
-  "version": "0.0.0",
-  "description": "Webpack demo app",
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "a really cool app",
   "main": "server.js",
   "scripts": {
     "start": "NODE_ENV=production node server.js",
@@ -32,15 +32,13 @@
     "webpack-merge": "^0.7.3"
   },
   "dependencies": {
+    "express": "^4.13.4",
     "history": "^2.0.1",
     "reach": "^1.0.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "webpack-dev-server": "^1.14.1"
   },
-  "name": "myapp",
-  "description": "a really cool app",
-  "version": "1.0.0",
   "engines": {
     "node": "5.9.0",
     "npm": "3.7.3"
