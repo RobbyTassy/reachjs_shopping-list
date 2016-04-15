@@ -43,6 +43,10 @@ var App = React.createClass({
     //if the above exists, simply add 1. If if doesn't, make the value to be one
     this.setState({ order : this.state.order }); //remember: state does not PASS until it says setState
   },
+  addAmountToOrder : function(key, number) {
+    this.state.order[key] = this.state.order[key] + number || number;
+    this.setState({ order : this.state.order }); //remember: state does not PASS until it says setState
+  },
   removeFromOrder : function(key) {
     delete this.state.order[key];
     this.setState ({
@@ -70,7 +74,7 @@ var App = React.createClass({
     });
   },
   renderFish : function(key) {
-    return <Fish key={key} index={key} details={this.state.fishes[key]} addToOrder={this.addToOrder} />
+    return <Fish key={key} index={key} details={this.state.fishes[key]} addAmountToOrder={this.addAmountToOrder} />
   },
   render : function() {
       return (
@@ -93,7 +97,9 @@ var App = React.createClass({
 var Fish = React.createClass({
   onButtonClick : function() {
     var key = this.props.index;
-    this.props.addToOrder(key);
+    var number = parseInt(this.refs.amount.value);
+    this.props.addAmountToOrder(key, number);
+
   },
   render : function() {
     var details = this.props.details;
@@ -107,7 +113,8 @@ var Fish = React.createClass({
           <span className="price">{helpers.formatPrice(details.price)}</span>
         </h3>
         <p>{details.desc}</p>
-        <button disable={!isAvailable} onClick={this.onButtonClick}>{buttonText}</button>
+        <input type="text" ref="amount"></input>
+        <button onClick={this.onButtonClick}>{buttonText}</button>
       </li>
     )
   }
